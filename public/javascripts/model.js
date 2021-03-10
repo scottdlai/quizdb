@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/questions';
+const url = 'https://quizdb-fybnb.ondigitalocean.app/questions';
 
 const isValidQuestion = (question) => {
   return typeof question === 'string' && question;

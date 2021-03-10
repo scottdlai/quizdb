@@ -169,7 +169,7 @@ router.put('/', (req, res) => {
   client
     .query(
       `UPDATE questions
-       SET question = $1
+       SET question = $1::text
        WHERE question_id = $2`,
       [question, id]
     )
@@ -186,12 +186,11 @@ router.put('/', (req, res) => {
       client
         .query(
           `INSERT INTO options (option_id, question_id, answer, is_correct)
-         VALUES $1
+         VALUES ${optionsValues}
          ON CONFLICT (option_id) DO UPDATE
          SET question_id = excluded.question_id,
              answer = excluded.answer,
-             is_correct = excluded.is_correct`,
-          [optionsValues]
+             is_correct = excluded.is_correct`
         )
         .then((result) => {
           res.status(200);

@@ -40,7 +40,7 @@ const getQuestionsFields = (questions) => {
 
     const saveBtn = createElement('button', {
       text: 'save',
-      classes: ['btn', 'btn-success'],
+      classes: ['btn', 'btn-info', 'btn-block'],
       onclick: async () => {
         const newOptions = options.map(({ id: optionID }) => {
           const element = getElement(`#option-${optionID}`);
@@ -90,7 +90,7 @@ const getNewQuestionForm = () => {
 
   const addBtn = createElement('button', {
     text: 'Add',
-    classes: ['btn', 'btn-primary'],
+    classes: ['btn', 'btn-success', 'btn-block'],
     onclick: async () => {
       const newOptionTextarea = optionsElements.filter(
         (e) => e.name === 'new-option'
@@ -111,7 +111,7 @@ const getNewQuestionForm = () => {
     },
   });
 
-  return [hr, heading, questionTextArea, ...optionsElements, addBtn];
+  return [heading, questionTextArea, ...optionsElements, addBtn, hr];
 };
 
 window.addEventListener('load', async () => {
@@ -129,5 +129,5 @@ window.addEventListener('load', async () => {
     href: './index.html',
   });
 
-  addElement(root, ...questionsElements, ...newQuestionForm, backBtn);
+  addElement(root, backBtn, ...newQuestionForm, ...questionsElements);
 });

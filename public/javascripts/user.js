@@ -64,7 +64,7 @@ window.addEventListener('load', async () => {
   const submitBtn = createElement('button', {
     text: 'Submit',
     id: 'submit-btn',
-    classes: ['btn', 'btn-primary'],
+    classes: ['btn', 'btn-success', 'btn-block'],
   });
 
   const backBtn = createElement('a', {
@@ -75,10 +75,10 @@ window.addEventListener('load', async () => {
 
   addElement(
     root,
+    backBtn,
     createElement('h1', { text: 'Questions' }),
     ...questionsElements,
-    submitBtn,
-    backBtn
+    submitBtn
   );
 
   submitBtn.addEventListener('click', () => {

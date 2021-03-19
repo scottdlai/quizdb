@@ -78,6 +78,7 @@ const getNewQuestionForm = () => {
 
     const textarea = createElement('textarea', {
       classes: ['option'],
+      placeholder: 'Leave blank to ignore',
       onchange: (e) => {
         checkbox.value = e.target.value;
       },
